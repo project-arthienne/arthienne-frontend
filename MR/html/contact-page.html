@@ -37,7 +37,7 @@
         <h1>Get in Touch!</h1>
         <p>To assist you better, please share your email and select the subject of your inquiry.
       Our team will reach out to you promptly.</p>
-        <form class="contact-form">
+        <form class="contact-form" id="contactForm">
             <input type="email" placeholder="e-mail" required/>
             <select required>
                 <option value="">Topic</option>
@@ -48,7 +48,7 @@
             </select>
         </form>
         <div class="btn-row">
-        <button type="send">Send</button> 
+        <button type="button" onclick="openTermsModal()">Send</button>
         </div>
     </main>
 
@@ -61,5 +61,56 @@
         </div>
         <p>2025, Arthienne</p>
     </footer>
+
+    <!-- TERMS MODAL -->
+    <div class="terms-modal" id="termsModal">
+        <div class="terms-modal-content">
+            <h2>Terms & Conditions</h2><br>
+
+            <p>
+                By continuing, you confirm that you have read and agree to
+                Arthienne’s Terms and Conditions.
+            </p>
+
+            <label class="terms-checkbox">
+                <input type="checkbox" id="acceptTerms">
+                I agree to the <a href="terms_conditions.html" target="_blank">Terms & Conditions</a>
+            </label>
+
+            <div class="terms-actions">
+                <button id="declineTerms" class="btn-secondary">Cancel</button>
+                <button id="confirmTerms" class="btn-primary" disabled>
+                    Accept & Continue
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS -->
+    <script>
+        const modal = document.getElementById("termsModal");
+        const checkbox = document.getElementById("acceptTerms");
+        const confirmBtn = document.getElementById("confirmTerms");
+        const declineBtn = document.getElementById("declineTerms");
+
+        function openTermsModal() {
+            modal.style.display = "block";
+        }
+
+        checkbox.addEventListener("change", () => {
+            confirmBtn.disabled = !checkbox.checked;
+        });
+
+        confirmBtn.addEventListener("click", () => {
+        modal.style.display = "none";
+        document.getElementById("contactForm").submit();
+        });
+
+        declineBtn.addEventListener("click", () => {
+            modal.style.display = "none";
+        });
+    </script>
+
+
 </body>
 </html>
