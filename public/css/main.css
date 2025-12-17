@@ -284,8 +284,9 @@ z-index:3;
 display:grid;
 grid-template-columns:repeat(2,1fr);
 gap:48px 56px;
-max-width:1000px;
+max-width:100%;
 margin:0 auto;
+padding-right:6px;
 }
 
 
@@ -316,6 +317,7 @@ display:flex;
 justify-content:center;
 gap:0.75rem;
 margin:4rem 0 2rem;
+padding-top: 4rem;
 }
 
 .page-btn{
@@ -331,7 +333,7 @@ border:1px solid var(--black);
 }
 
 .footer{
-margin-top:140px;
+margin-top:60px;
 padding:40px 0;
 text-align:center;
 font-size:14px;
